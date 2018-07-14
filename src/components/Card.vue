@@ -6,9 +6,9 @@
       <img :src="post.featured_image" alt="Blog Post Featured Image"/>
     </router-link>
     <span>
-      <i>&mdash;</i>
-        {{ getFormattedDate(post.date) }}
-      <i>&mdash;</i>
+<!--      <i>&mdash;</i>-->
+      <icon name="calendar" :size="14" ></icon> {{ getFormattedDate(post.date) }}
+<!--      <i>&mdash;</i>-->
     </span>
     <h3>
       <router-link
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import Icon from './Icon'
 export default {
   name: 'Card',
 
@@ -32,7 +33,8 @@ export default {
     post: {
       type: Object
     }
-  }
+  },
+	components: { Icon }
 }
 
 </script>
@@ -42,10 +44,20 @@ export default {
     display: flex;
     flex-direction: column;
     background: $gray--light;
-    border: 2px solid darken($gray--light, 5%);
+/*    border: 2px solid darken($gray--light, 5%);*/
     padding: 2rem 1rem;
     text-align: center;
-
+		border-radius: 20px;
+		box-shadow: 0 2px 43px -4px rgba(0,0,0,.19);
+		margin	: 2em;
+		transition: all .3s linear 0s;
+		
+		&:hover {
+			box-shadow: none;
+			transform: translateY(20)
+/*    	background: $yellow;*/
+		}
+		
     a {
       display: block;
     }
@@ -61,7 +73,8 @@ export default {
   }
 
   span {
-    font-size: $small-font-size;
+    font-size: 13px;
+		font-family: $base-font-family;
     color: $gray--medium;
     margin: 1rem 0 .5rem;
   }

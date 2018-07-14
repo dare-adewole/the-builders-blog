@@ -4,7 +4,7 @@
     <TopBar
       @showUpdater="showUpdater = true"
     />
-
+		<div class="clearfix"></div>
     <div id="wrapper">
 
       <Updater
@@ -41,7 +41,7 @@
       return {
         error: '',
         loadingOn: true,
-        loadingMessage: 'Loading WP Vue',
+        loadingMessage: 'Welcome to The Builders',
         loadingWheel: true,
         showUpdater: false,
         viewKey: 0,
@@ -107,14 +107,21 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+		
+		.clearfix {
+				height: 6.3rem;
+		}
 
   #wrapper {
-    max-width: 1200px;
+/*    max-width: 1200px;*/
     margin: 0 auto;
-    padding: 1rem;
+/*		margin-top: 1.5em;*/
+    padding: 0 1rem;
+    padding: 0;
 
     @include media($small) {
-      padding: 2rem;
+      padding: 0 2rem;
+      padding: 0;
     }
   }
 </style>

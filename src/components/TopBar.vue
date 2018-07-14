@@ -6,18 +6,15 @@
         :to="{
           name: 'home',
         }">
-        WP Vue
+        The Builders
       </router-link>
     </h1>
 
     <div>
-      <p>
-        Currently presenting content from <a :href="sourceURL">{{ splitEndpoint[2] }}</a>.
-      </p>
-
-      <button @click="showUpdater">
-        Change Endpoint
-      </button>
+      <button>OUR EVENTS</button>
+      <button>GET ADVICE</button>
+      <button>GALLERY</button>
+      <button class="login">LOGIN</button>
     </div>
   </nav>
 </template>
@@ -31,17 +28,17 @@ export default {
   },
 
   computed: {
-    splitEndpoint: function () {
+    splitEndpoint() {
       return this.$store.state.endpoint.split('/')
     },
 
-    sourceURL: function () {
+    sourceURL() {
       return this.splitEndpoint[0] + this.splitEndpoint[1] + this.splitEndpoint[2];
     }
   },
 
   methods: {
-    showUpdater: function () {
+    showUpdater() {
       this.$emit('showUpdater');
     }
   }
@@ -56,10 +53,17 @@ export default {
     justify-content: space-between;
     text-align: center;
     align-items: center;
-    margin-bottom: 1rem;
-    background: rgba($gray--light, .9);
-    padding: 1rem 2rem;
-    border-bottom: 2px solid darken($gray--light, 5%);
+			position: fixed;
+			left: 0;
+			right: 0;
+/*    margin-bottom: 1rem;*/
+    background: $white;
+    // background: #F7F7F7;
+		z-index: 10000;
+    padding: 1.5rem 2rem;
+    // border-bottom: 2px solid darken($gray--light, 5%);
+/*    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.2);*/
+/*		box-shadow: inset 0px 10px 50px -4px rgba(0,0,0,.19);*/
 
     @include media($small) {
       flex-direction: row;
@@ -77,6 +81,19 @@ export default {
   }
 
   button {
+		font-size: 14px;
+		font-weight: 700;
+		background-color: transparent;
+		color: $blue;
+		transition: all .25s ease-out 0s;
+			&.login {
+				background-color: $yellow;
+				color: $white;
+			}
+			&:hover {
+					opacity: 0.5;
+					transform: scale(1.05);
+			}
     @include media($mobile) {
       margin: 0 0 0 1rem;
     }
@@ -87,7 +104,11 @@ export default {
   }
 
   a {
-    font-weight: bold;
+	  font-family: $special-heading-font-family;
+/*    font-weight: 600;*/
+    color: $blue;
+    font-size: 33px;
+/*		text-shadow: 0 0 .3em #888;*/
   }
 
   p {

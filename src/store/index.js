@@ -8,6 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     endpoint: REST_ENDPOINT
+//		endpoint:  'http://localhost:8000/wp-json/wp/v2'
   },
 
   mutations: {

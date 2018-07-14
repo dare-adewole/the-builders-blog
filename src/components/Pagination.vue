@@ -6,7 +6,7 @@
           :class="{'is-disabled' : currentPage === 1}"
           :to="{ name: 'page', params: {page: this.currentPage - 1} }"
         >
-          Previous Page
+          <icon name="arrow-left-bold-circle" :size="40"></icon>
         </router-link>
       </li>
       <li>
@@ -14,16 +14,17 @@
           :class="{'is-disabled' : currentPage === this.totalPages}"
           :to="{ name: 'page', params: {page: this.currentPage + 1} }"
         >
-          Next Page
+          <icon name="arrow-right-bold-circle" :size="40"></icon>
         </router-link>
       </li>
     </ul>
 
-    <p>page <strong>{{ currentPage }}</strong> out of <strong>{{ totalPages }}</strong></p>
+    <p><strong class="page-number">{{ currentPage }}</strong> / <strong>{{ totalPages }}</strong></p>
   </nav>
 </template>
 
 <script>
+		import Icon from './Icon'
 export default {
   name: 'Pagination',
 
@@ -35,7 +36,8 @@ export default {
     totalPages: {
       default: 1
     }
-  }
+  },
+		components: { Icon }
 }
 
 </script>
@@ -59,6 +61,12 @@ export default {
   }
 
   p {
-    font-size: $small-font-size;
+    font-size: 17px;
+		font-family: $heading-font-family;
+			color: #AAA;
+			.page-number {
+					font-size: 23px;
+					color: $yellow + 2
+			}
   }
 </style>

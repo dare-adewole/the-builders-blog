@@ -1,11 +1,11 @@
 <template>
   <div>
-
+		<app-caption></app-caption>
+		<aim></aim>
     <section>
-      <p>
-        WP Vue is a simple template built with Vue JS that displays posts from a WordPress REST API endpoint.
-        Take what you see here &amp; rip it apart to suit your needs. To improve it for everyone else, <a href="https://www.github.com/alexmacarthur/wp-vue">contribute on Github</a>.
-      </p>
+      <h1>
+        You'd love Our Posts
+      </h1>
     </section>
 
     <ul>
@@ -27,7 +27,9 @@
 <script>
 import bus from '../bus';
 import ajax from '../mixins/ajax';
+import Caption from '../components/Caption';
 import Card from '../components/Card';
+import Aim from '../components/Aim';
 import Pagination from '../components/Pagination';
 
 export default {
@@ -134,7 +136,9 @@ export default {
 
   components: {
     Card,
-    Pagination
+		AppCaption: Caption,
+    Pagination,
+		Aim
   }
 }
 
@@ -152,6 +156,15 @@ export default {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax( 320px, auto ) );
     grid-gap: 1rem;
+		width: 80%;
+		margin: auto;
   }
+	
+	h1 {
+		font-family: $special-heading-font-family;
+		font-size: 50px;
+		color: #BBB;
+		margin: 1.5em auto;
+	}
 </style>
 
